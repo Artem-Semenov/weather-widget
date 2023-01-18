@@ -1,6 +1,6 @@
 "use strict";
 
-import City from "modules/City.js";
+import City from "https://artem-semenov.github.io/weather-widget/modules/City.js";
 
 /* async function fetch1() {
   let a = await fetch(
