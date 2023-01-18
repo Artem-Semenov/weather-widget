@@ -1,6 +1,6 @@
 "use strict";
 
-import City from "/modules/City.js";
+import City from "modules/City.js";
 
 /* async function fetch1() {
   let a = await fetch(
@@ -110,6 +110,6 @@ secondWeatherWidget.addEventListener(
   "clear-button"
 );
 
-secondWeatherWidget.Init("Malta");
+// secondWeatherWidget.Init("Malta");
 
 console.log(weatherWidget, secondWeatherWidget);
