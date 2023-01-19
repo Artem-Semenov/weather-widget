@@ -2,6 +2,7 @@
 
 import City from "https://artem-semenov.github.io/weather-widget/modules/City.js";
 
+
 /* async function fetch1() {
   let a = await fetch(
     "https://api.openweathermap.org/data/2.5/weather?q=Kharkiv&appid=0d11d7637efffedbd53ee0ee1ee90aa4"
@@ -38,7 +39,7 @@ class Widget {
   }
   citiesList = [];
 
-  Init = async (...args) => {
+  Init = (...args) => {
     this.createCitiesList(...args).forEach((item) => {
       this.citiesList.push(item);
     });
@@ -54,7 +55,7 @@ class Widget {
     });
   };
 
-  Render = async () => {
+  Render = () => {
     console.log("rendering started");
     this.citiesList.forEach(async (el) => {
       await el.DOM();
@@ -72,7 +73,6 @@ class Widget {
     }
 
     if (this.citiesList.some((el) => el.name === this.input)) {
-      console.log("FALSE");
       alert("City is already on the stage");
       return;
     } else {

@@ -62,3 +62,9 @@
  display: block;
  margin:  15px auto; 
 }
+
+@media (max-width: 768px) {
+  .city-wrapper {
+    flex-basis: 100%;
+  }
+}
