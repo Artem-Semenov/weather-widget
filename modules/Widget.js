@@ -1,7 +1,7 @@
 "use strict";
 
-// import City from "https://artem-semenov.github.io/weather-widget/modules/City.js";
-import City from "/modules/City.js";
+import City from "https://artem-semenov.github.io/weather-widget/modules/City.js";
+// import City from "/modules/City.js";
 
 class Widget {
   constructor(id) {
@@ -16,7 +16,7 @@ class Widget {
       this.citiesList.push(city);
     });
 
-   // setTimeout(() => {
+  // setTimeout(() => {
       console.log(this.citiesList);
       this.Render();
     //}, 300);
