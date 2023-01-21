@@ -1,37 +1,7 @@
 "use strict";
 
-import City from "https://artem-semenov.github.io/weather-widget/modules/City.js";
-
-
-/* async function fetch1() {
-  let a = await fetch(
-    "https://api.openweathermap.org/data/2.5/weather?q=Kharkiv&appid=0d11d7637efffedbd53ee0ee1ee90aa4"
-  );
-  return a.json();
-}
-async function fetch2() {
-  let b = await fetch(
-    "https://api.openweathermap.org/data/2.5/weather?q=Kyiv&appid=0d11d7637efffedbd53ee0ee1ee90aa4"
-  );
-  return b.json();
-}
-async function fetch3() {
-  let c = await fetch(
-    "https://api.openweathermap.org/data/2.5/weather?q=Uzhgorod&appid=0d11d7637efffedbd53ee0ee1ee90aa4"
-  );
-  return c.json();
-}
-
-async function fetchAll() {
-  let a = await fetch1();
-  console.log(1, a);
-  let b = await fetch2();
-  console.log(2, b);
-  let c = await fetch3();
-  console.log(3, c);
-}
-
- */
+// import City from "https://artem-semenov.github.io/weather-widget/modules/City.js";
+import City from "/modules/City.js";
 
 class Widget {
   constructor(id) {
@@ -39,26 +9,29 @@ class Widget {
   }
   citiesList = [];
 
-  Init = (...args) => {
-    this.createCitiesList(...args).forEach((item) => {
-      this.citiesList.push(item);
+  Init = async (...args) => {
+    await this.createCitiesList(...args);
+
+    this.citiesList.forEach((city) => {
+      this.citiesList.push(city);
     });
 
-    this.Render();
+   // setTimeout(() => {
+      console.log(this.citiesList);
+      this.Render();
+    //}, 300);
   };
 
-  createCitiesList = (...args) => {
-    console.log("creating list started");
-    return args.map((el) => {
+  createCitiesList = async (...args) => {
+    args.forEach(async (el) => {
       let item = new City(el.trim());
-      return item;
+      await item.DOM();
+      this.citiesList.push(item);
     });
   };
 
   Render = () => {
-    console.log("rendering started");
-    this.citiesList.forEach(async (el) => {
-      await el.DOM();
+    this.citiesList.forEach((el) => {
       this.wrapperElement.append(el.element);
     });
     return "rendering finished";
@@ -80,7 +53,8 @@ class Widget {
 
       city
         .renderCity(this.wrapperElement)
-        .then((res) => this.citiesList.push(res));
+        .then((res) => this.citiesList.push(res))
+        .catch((error) => console.log(error));
     }
   };
 
@@ -111,5 +85,3 @@ secondWeatherWidget.addEventListener(
 );
 
 // secondWeatherWidget.Init("Malta");
-
-console.log(weatherWidget, secondWeatherWidget);

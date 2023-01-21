@@ -8,7 +8,8 @@ class City {
       `https://api.openweathermap.org/data/2.5/weather?q=${this.name}&appid=0d11d7637efffedbd53ee0ee1ee90aa4`
     )
     .then(data => data.json())
-    .then(json => this.weather = json);
+    .then(json => this.weather = json)
+    .catch(error => console.log(error))
 
     return this.weather
   };
