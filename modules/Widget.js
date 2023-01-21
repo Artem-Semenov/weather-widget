@@ -23,11 +23,11 @@ class Widget {
   };
 
   createCitiesList = async (...args) => {
-    args.forEach(async (el) => {
+    for await (const el of args) {
       let item = new City(el.trim());
       await item.DOM();
       this.citiesList.push(item);
-    });
+    }
   };
 
   Render = () => {
