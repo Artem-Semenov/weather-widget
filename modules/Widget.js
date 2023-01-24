@@ -86,7 +86,7 @@ secondWeatherWidget.addEventListener(
 
 // secondWeatherWidget.Init("Malta");
 
-
+/* 
 setInterval(() => {
   window.navigator.vibrate(200)
-},1000)
+},1000) */
