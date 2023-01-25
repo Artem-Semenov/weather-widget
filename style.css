@@ -63,8 +63,17 @@
  margin:  15px auto; 
 }
 
+
+#map {
+  margin: 50px auto;
+  width: 800px;
+  height: 400px;
+}
 @media (max-width: 768px) {
   .city-wrapper {
     flex-basis: 100%;
+  }
+  #map {
+  width: 100%;
   }
 }

@@ -12,10 +12,6 @@ class Widget {
   Init = async (...args) => {
     await this.createCitiesList(...args);
 
-    this.citiesList.forEach((city) => {
-      this.citiesList.push(city);
-    });
-
     // setTimeout(() => {
     console.log(this.citiesList);
     this.Render();
@@ -99,3 +95,11 @@ setInterval(() => {
 .then(data => data);
 
 console.log(test); */
+
+
+
+//AIzaSyDOuxr5zhrFVF5-7I7Yi6mXMxg3p0OhSoo
+
+// Initialize and add the map
+
+

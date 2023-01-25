@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -13,21 +14,38 @@
         Lets find out what is weather now in 3 lovely cities of Ukraine
       </h1>
       <div class="widget-wrapper" id="widget-wrapper"></div>
-      <h2 class="sub-title">Also, you can check any city. Enter its name
-        <br>
+      <h2 class="sub-title">
+        Also, you can check any city. Enter its name
+        <br />
         (e.g. London, Paris, Madeira etc.)
       </h2>
       <form action="" class="input-form">
-        <input type="text" id="input-city">
+        <input type="text" id="input-city" />
         <button type="submit" id="submit-city">Submit</button>
       </form>
       <button class="clear-button" id="clear-button">Clear</button>
       <div class="sub-widget-weather" id="sub-widget-weather"></div>
     </div>
-
+    <div id="map"></div>
     <script type="module" src="https://artem-semenov.github.io/weather-widget/modules/Widget.js"></script>
     <!-- <script type="module" src="/modules/Widget.js"></script> -->
+    <script>
+      let map;
+      function initMap() {
+        const position = { lat: 48.6259, lng: 22.2957 };
+        map = new google.maps.Map(document.getElementById("map"), {
+          center: position,
+          zoom: 14,
+        });
+        const marker = new google.maps.Marker({
+          position: position,
+          map: map,
+        });
+      }
+    </script>
+    <script
+      async
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOuxr5zhrFVF5-7I7Yi6mXMxg3p0OhSoo&callback=initMap"
+    ></script>
   </body>
 </html>
-
-
