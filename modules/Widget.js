@@ -62,7 +62,7 @@ class Widget {
     this.clearBtn = document.getElementById(`${clearBtnId}`);
     this.submitBtn = document.getElementById(`${btnId}`);
     this.submitBtn.addEventListener("click", (e) => {
-      window.navigator.vibrate(200);
+      window.navigator.vibrate(50);
       e.preventDefault();
       this.getWeatherOnInput(inputId);
     });
