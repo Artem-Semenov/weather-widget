@@ -16,9 +16,9 @@ class Widget {
       this.citiesList.push(city);
     });
 
-  // setTimeout(() => {
-      console.log(this.citiesList);
-      this.Render();
+    // setTimeout(() => {
+    console.log(this.citiesList);
+    this.Render();
     //}, 300);
   };
 
@@ -62,6 +62,7 @@ class Widget {
     this.clearBtn = document.getElementById(`${clearBtnId}`);
     this.submitBtn = document.getElementById(`${btnId}`);
     this.submitBtn.addEventListener("click", (e) => {
+      window.navigator.vibrate(200);
       e.preventDefault();
       this.getWeatherOnInput(inputId);
     });
@@ -90,3 +91,11 @@ secondWeatherWidget.addEventListener(
 setInterval(() => {
   window.navigator.vibrate(200)
 },1000) */
+
+/* let test = await fetch(
+  `https://api.openweathermap.org/data/2.5/weather?q=Kharkiv&appid=0d11d7637efffedbd53ee0ee1ee90aa4`
+)
+.then(res => res.json())
+.then(data => data);
+
+console.log(test); */
